@@ -1,6 +1,14 @@
 #include <iostream>
 using namespace std;
 
+void printArray(int arr[], int size){
+    cout<<"Printing..."<<endl;
+    for(int i=0; i<size; i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<"Printing done"<<endl;
+}
+
 int main(){
 
     int number[14];  //declare
@@ -28,10 +36,12 @@ int main(){
     // Initialize with 1 is not possible
     int fifth[9] = {1};
     n = 9;
-    cout<<"Printing the array"<<endl;
-    for(int i=0; i<n; i++){
-        cout<<fifth[i]<<" "; //: 1 0 0 0 0 0 0 0 0
-    }
+    printArray(fifth,n);
+
+    // cout<<"Printing the array"<<endl;
+    // for(int i=0; i<n; i++){
+    //     cout<<fifth[i]<<" "; //: 1 0 0 0 0 0 0 0 0
+    // }
 
     //Initalize with any element
     int sixth[10];
@@ -43,6 +53,10 @@ int main(){
     for(int i=0; i<n; i++){
         cout<<sixth[i]<<" ";  //: 5 5 5 5 5 5 5 5 5 5
     }
+
+    //size
+    int sixthSize = sizeof(sixth)/sizeof(int);
+    cout<<"Sixth Size "<<sixthSize<<endl; // not good that's why we send size explicitly in printArray
 
 
     return 0;
