@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-void insertionSort(){
+void insertionSort(int n, vector<int> &arr){
     for(int i=1; i<n; i++){
         int temp = arr[i];
         int j = i-1;
