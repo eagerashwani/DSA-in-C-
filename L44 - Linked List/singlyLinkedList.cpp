@@ -27,6 +27,35 @@ void insertAtTail(Node* &tail, int data){
 
 }
 
+void insertAtPosition(Node* &head, Node* &tail, int data, int position){
+    //Edge case : agr start mey add krna ho 
+    if(position == 1){
+        insertAtHead(head,data);
+        return;
+    }
+
+    Node* temp = head;
+    int cnt = 1;
+
+    while(cnt<position-1){
+        temp = temp->next;
+        cnt++;
+    }
+
+    //Edge case(Tail pointer update) Inserting at last position
+    if(temp->next == NULL){
+        insertAtTail(tail,data);
+        return;
+    }
+
+    //creating node for data
+    Node* nodeToInsert = new Node(data);
+    nodeToInsert -> next = temp -> next;
+    temp->next = nodeToInsert;
+
+
+}
+
 void printLL(Node* &head){
     Node* temp = head;
     while(temp != NULL){
@@ -52,6 +81,9 @@ int main() {
    printLL(head);
 
    insertAtTail(tail,15);
+   printLL(head);
+
+   insertAtPosition(head,tail,22,4);
    printLL(head);
 
    return 0;
